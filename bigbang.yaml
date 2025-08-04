@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: BigBang
+metadata:
+  name: bigbang.dev
+spec:
+  domain: bigbang.dev
+  git:
+    repo: https://github.com/branflaker/test-bigbang
+    branch: master
+  flux:
+    path: ./base
+  addons:
+    istio:
+      enabled: true
+    jaeger:
+      enabled: false
+    kiali:
+      enabled: false
+    monitoring:
+      enabled: false
