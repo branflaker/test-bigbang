@@ -1,25 +1,26 @@
 domain: bigbang.dev
 flux:
   enabled: true
-kyverno:
-  enabled: true
-  # Override the default registry to a public one
-  registry: "ghcr.io/kyverno"
-  # Disable the secret as it's not needed for a public registry
-  imagePullSecrets: []
-istio:
-  enabled: true
-  ingressGateways:
-    public:
-      enabled: true
-istioOperator:
-  enabled: true
-# Disabling optional components
-monitoring:
-  enabled: false
-clusterAuditor:
-  enabled: false
-gatekeeper:
-  enabled: false
-logging:
-  enabled: false
+addons:
+  kyverno:
+    enabled: true
+    # Override the default registry to a public one
+    registry: "ghcr.io/kyverno"
+    # Disable the secret as it's not needed for a public registry
+    imagePullSecrets: []
+  istio:
+    enabled: true
+    ingressGateways:
+      public:
+        enabled: true
+  istioOperator:
+    enabled: true
+  # Disabling optional components
+  monitoring:
+    enabled: false
+  clusterAuditor:
+    enabled: false
+  gatekeeper:
+    enabled: false
+  logging:
+    enabled: false

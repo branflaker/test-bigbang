@@ -14,8 +14,8 @@ resources:
 configMapGenerator:
   - name: common
     behavior: create
-    literals:
-      - values.yaml=
+    files:
+      - values.yaml
   - name: environment
     behavior: create
     literals:
