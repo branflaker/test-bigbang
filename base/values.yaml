@@ -9,10 +9,11 @@ addons:
       repoName: "kyverno"
       chartName: "kyverno"
       tag: "3.4.4"
-    # Override the default registry to a public one
-    registry: "ghcr.io/kyverno"
-    # Disable the secret as it's not needed for a public registry
-    imagePullSecrets: []
+    values:
+      # Override the default registry to a public one
+      registry: "ghcr.io/kyverno"
+      # Disable the secret as it's not needed for a public registry
+      imagePullSecrets: []
   istio:
     enabled: true
     ingressGateways:
