@@ -4,6 +4,11 @@ flux:
 addons:
   kyverno:
     enabled: true
+    sourceType: "helmRepo"
+    helmRepo:
+      repoName: "kyverno"
+      chartName: "kyverno"
+      tag: "3.4.4"
     # Override the default registry to a public one
     registry: "ghcr.io/kyverno"
     # Disable the secret as it's not needed for a public registry
