@@ -1,5 +1,5 @@
 configurations:
-- transformer.yaml
+  - transformer.yaml
 
 namespace: bigbang
 
@@ -15,11 +15,11 @@ configMapGenerator:
   - name: common
     behavior: create
     literals:
-    - values.yaml=
+      - values.yaml=
   - name: environment
     behavior: create
     literals:
-    - values.yaml=
+      - values.yaml=
 
 # Flux combines secrets and configmaps in `valuesFrom`.  Kustomize
 # cannot distinguish between them when applying suffixes.  Therefore,
@@ -30,8 +30,8 @@ secretGenerator:
   - name: common-bb
     behavior: create
     literals:
-    - values.yaml=
+      - values.yaml=
   - name: environment-bb
     behavior: create
     literals:
-    - values.yaml=
+      - values.yaml=
