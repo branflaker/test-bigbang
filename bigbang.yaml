@@ -1,20 +1,25 @@
-apiVersion: v1
-kind: BigBang
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
 metadata:
-  name: bigbang.dev
+  name: bigbang
+  namespace: bigbang
 spec:
-  domain: bigbang.dev
-  git:
-    repo: https://github.com/branflaker/test-bigbang
+  interval: 1m
+  url: https://github.com/branflaker/test-bigbang
+  ref:
     branch: master
-  flux:
-    path: ./base
-  addons:
-    istio:
-      enabled: true
-    jaeger:
-      enabled: false
-    kiali:
-      enabled: false
-    monitoring:
-      enabled: false
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: bigbang
+  namespace: bigbang
+spec:
+  interval: 1m
+  path: "./base"
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: bigbang
+  targetNamespace: bigbang
+  timeout: 5m
