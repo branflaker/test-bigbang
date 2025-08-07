@@ -9,6 +9,6 @@ spec:
     /**/*.txt
     /**/*.sh
   interval: 10m
-  url: https://repo1.dso.mil/big-bang/bigbang.git
+  url: https://github.com/branflaker/test-bigbang
   ref:
     tag: 3.3.1
