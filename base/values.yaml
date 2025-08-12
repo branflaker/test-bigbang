@@ -12,3 +12,28 @@ istioGateway:
       passthrough:
         service:
           type: NodePort
+
+# Configure neuvector to use public images instead of Iron Bank
+neuvector:
+  values:
+    registry: docker.io
+    tag: "5.4.4"
+    controller:
+      image:
+        repository: neuvector/controller
+    enforcer:
+      image:
+        repository: neuvector/enforcer
+    manager:
+      image:
+        repository: neuvector/manager
+    cve:
+      scanner:
+        image:
+          repository: neuvector/scanner
+          tag: "latest"
+    exporter:
+      apiSvc:
+        image:
+          repository: neuvector/prometheus-exporter
+          tag: "latest"
