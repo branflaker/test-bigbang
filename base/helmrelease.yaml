@@ -107,3 +107,8 @@ spec:
         repo: https://github.com/grafana/helm-charts
         path: "./charts/tempo"
         tag: "tempo-distributed-1.21.1"
+    neuvector:
+      git:
+        repo: https://github.com/neuvector/neuvector-helm
+        path: "./charts/core"
+        tag: "v2.8.6"
