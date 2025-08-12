@@ -1,3 +1,13 @@
 domain: bigbang.dev
 flux:
   enabled: true
+
+# Configure gateways to use NodePort instead of LoadBalancer for k3d compatibility
+istio:
+  gateways:
+    public:
+      service:
+        type: NodePort
+    passthrough:
+      service:
+        type: NodePort
