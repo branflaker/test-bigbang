@@ -522,12 +522,13 @@ kyvernoPolicies:
 
   # -- Values to passthrough to the kyverno policies chart: https://repo1.dso.mil/big-bang/product/packages/kyverno-policies.git
   values:
-    # Exclude problematic policies that block monitoring and node-exporter
+    # Exclude problematic policies that block monitoring and ingress gateways
     exclude:
       - disallow-capabilities
       - disallow-host-ports
       - disallow-host-namespaces
       - disallow-host-path
+      - restrict-sysctls
     policies:
       disallow-capabilities:
         enabled: false # Disable this policy to allow monitoring to deploy
@@ -537,6 +538,8 @@ kyvernoPolicies:
         enabled: false # Disable this policy to allow node-exporter to use host network
       disallow-host-path:
         enabled: false # Disable this policy to allow node-exporter to access host paths
+      restrict-sysctls:
+        enabled: false # Disable this policy to allow ingress gateways to use required sysctls
 
   # -- Post Renderers.  See docs/postrenders.md
   postRenderers: []
