@@ -525,6 +525,12 @@ kyvernoPolicies:
     policies:
       disallow-capabilities:
         enabled: false # Disable this policy to allow monitoring to deploy
+      disallow-host-ports:
+        enabled: false # Disable this policy to allow node-exporter to use host ports
+      disallow-host-namespaces:
+        enabled: false # Disable this policy to allow node-exporter to use host network
+      disallow-host-path:
+        enabled: false # Disable this policy to allow node-exporter to access host paths
 
   # -- Post Renderers.  See docs/postrenders.md
   postRenderers: []

@@ -1,9 +1,3 @@
 domain: bigbang.dev
 flux:
   enabled: true
-
-kyvernoPolicies:
-  values:
-    policies:
-      disallow-capabilities:
-        enabled: false
