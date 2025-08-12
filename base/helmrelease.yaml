@@ -70,17 +70,6 @@ spec:
         repo: https://github.com/kyverno/kyverno
         path: "./charts/kyverno-policies"
         tag: "kyverno-policies-chart-3.3.4"
-      values:
-        policies:
-          disallow-capabilities:
-            rules:
-              - name: adding-capabilities
-                exclude:
-                  any:
-                    - resources:
-                        namespaces:
-                          - monitoring
-                          - istio-system
     monitoring:
       git:
         repo: https://github.com/prometheus-community/helm-charts
@@ -89,6 +78,30 @@ spec:
       values:
         global:
           imagePullSecrets: []
+        grafana:
+          image:
+            registry: docker.io
+            repository: grafana/grafana
+            tag: "11.1.0"
+          sidecar:
+            image:
+              registry: docker.io
+              repository: kiwigrid/k8s-sidecar
+              tag: "1.30.6"
+          downloadDashboardsImage:
+            registry: docker.io
+            repository: curlimages/curl
+            tag: "8.10.1"
+        prometheusOperator:
+          image:
+            registry: quay.io
+            repository: prometheus-operator/prometheus-operator
+            tag: "v0.77.1"
+          prometheusConfigReloader:
+            image:
+              registry: quay.io
+              repository: prometheus-operator/prometheus-config-reloader
+              tag: "v0.77.1"
     tempo:
       git:
         repo: https://github.com/grafana/helm-charts
