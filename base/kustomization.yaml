@@ -9,6 +9,7 @@ commonLabels:
 resources:
   - namespace.yaml
   - gitrepository.yaml
+  - istio-helmrepository.yaml
   - helmrelease.yaml
 
 configMapGenerator:
@@ -18,8 +19,8 @@ configMapGenerator:
       - values.yaml
   - name: environment
     behavior: create
-    literals:
-      - values.yaml=
+    files:
+      - values.yaml
 
 # Flux combines secrets and configmaps in `valuesFrom`.  Kustomize
 # cannot distinguish between them when applying suffixes.  Therefore,

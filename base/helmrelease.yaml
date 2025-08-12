@@ -38,3 +38,59 @@ spec:
       name: environment-bb
     - kind: ConfigMap
       name: environment
+  values:
+    # alloy:
+    #   git:
+    #     repo: https://github.com/alloy
+    #     path: "./opertaions/helm/charts/alloy"
+    #     tag: "helm-chart/1.2.0"
+    # grafana:
+    #   git:
+    #     repo: https://github.com/grafana/helm-charts
+    #     path: "./charts/grafana"
+    #     tag: "grafana-9.2.10"
+    istiod:
+      sourceType: "helmRepo"
+      helmRepo:
+        repoName: "istio"
+        chartName: "istiod"
+        tag: "1.26.2"
+    istioGateway:
+      git:
+        repo: https://github.com/istio/istio
+        path: "./manifests/charts/gateway"
+        tag: "1.26.2"
+    kyverno:
+      git:
+        repo: https://github.com/kyverno/kyverno
+        path: "./charts/kyverno"
+        tag: "kyverno-chart-3.4.4"
+    kyvernoPolicies:
+      git:
+        repo: https://github.com/kyverno/kyverno
+        path: "./charts/kyverno-policies"
+        tag: "kyverno-policies-chart-3.3.4"
+      values:
+        policies:
+          disallow-capabilities:
+            rules:
+              - name: adding-capabilities
+                exclude:
+                  any:
+                    - resources:
+                        namespaces:
+                          - monitoring
+                          - istio-system
+    monitoring:
+      git:
+        repo: https://github.com/prometheus-community/helm-charts
+        path: "./charts/kube-prometheus-stack"
+        tag: "kube-prometheus-stack-75.6.1"
+      values:
+        global:
+          imagePullSecrets: []
+    tempo:
+      git:
+        repo: https://github.com/grafana/helm-charts
+        path: "./charts/tempo"
+        tag: "tempo-distributed-1.21.1"
