@@ -82,7 +82,6 @@ spec:
                           - monitoring
                           - istio-system
     monitoring:
-      enabled: false
       git:
         repo: https://github.com/prometheus-community/helm-charts
         path: "./charts/kube-prometheus-stack"
