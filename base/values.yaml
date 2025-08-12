@@ -32,8 +32,10 @@ neuvector:
         image:
           repository: neuvector/scanner
           tag: "latest"
-    exporter:
-      apiSvc:
-        image:
-          repository: neuvector/prometheus-exporter
-          tag: "latest"
+    # Try monitor path for prometheus exporter since deployment shows chart=monitor-2.8.6
+    monitor:
+      exporter:
+        apiSvc:
+          image:
+            repository: neuvector/prometheus-exporter
+            tag: "latest"
