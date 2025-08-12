@@ -522,6 +522,12 @@ kyvernoPolicies:
 
   # -- Values to passthrough to the kyverno policies chart: https://repo1.dso.mil/big-bang/product/packages/kyverno-policies.git
   values:
+    # Exclude problematic policies that block monitoring and node-exporter
+    exclude:
+      - disallow-capabilities
+      - disallow-host-ports
+      - disallow-host-namespaces
+      - disallow-host-path
     policies:
       disallow-capabilities:
         enabled: false # Disable this policy to allow monitoring to deploy
