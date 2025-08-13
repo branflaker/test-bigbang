@@ -112,3 +112,18 @@ spec:
         repo: https://github.com/neuvector/neuvector-helm
         path: "./charts/core"
         tag: "v2.8.6"
+    grafana:
+      git:
+        repo: https://github.com/grafana/helm-charts
+        path: "./charts/grafana"
+        tag: "grafana-9.2.10"
+    loki:
+      git:
+        repo: https://github.com/grafana/helm-charts
+        path: "./charts/loki"
+        tag: "loki-6.30.1"
+    kiali:
+      git:
+        repo: https://github.com/kiali/helm-charts
+        path: "./kiali-server"
+        tag: "v2.12.0"

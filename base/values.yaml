@@ -12,4 +12,3 @@ istioGateway:
       passthrough:
         service:
           type: NodePort
-
