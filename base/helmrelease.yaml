@@ -122,8 +122,3 @@ spec:
         repo: https://github.com/grafana/loki
         path: "./production/helm/loki"
         tag: "helm-loki-6.30.1"
-    kiali:
-      values:
-        deployment:
-          image_name: docker.io/kiali/kiali
-          image_version: v1.89
