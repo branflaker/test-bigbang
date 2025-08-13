@@ -124,8 +124,6 @@ spec:
         tag: "helm-loki-6.30.1"
     kiali:
       values:
-        cr:
-          spec:
-            deployment:
-              image_name: docker.io/kiali/kiali
-              image_version: v1.89
+        deployment:
+          image_name: docker.io/kiali/kiali
+          image_version: v1.89
