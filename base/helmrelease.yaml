@@ -119,8 +119,8 @@ spec:
         tag: "grafana-9.2.10"
     loki:
       git:
-        repo: https://github.com/grafana/helm-charts
-        path: "./charts/loki"
+        repo: https://github.com/grafana/loki
+        path: "./production/helm/loki"
         tag: "helm-loki-6.30.1"
     kiali:
       values:
